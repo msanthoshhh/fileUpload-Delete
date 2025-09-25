@@ -12,6 +12,7 @@ import {
   Search,
   Delete,
   People,
+  VpnKey,
 } from '@mui/icons-material';
 import Link from 'next/link';
 
@@ -30,6 +31,13 @@ export default function Home() {
       icon: <Search sx={{ fontSize: 40 }} />,
       href: '/search',
       color: 'secondary.main',
+    },
+    {
+      title: 'OTP Lookup',
+      description: 'Find the latest One-Time Password for any phone number',
+      icon: <VpnKey sx={{ fontSize: 40 }} />,
+      href: '/otp',
+      color: 'success.main',
     },
     {
       title: 'Manage Users',
@@ -113,7 +121,7 @@ export default function Home() {
         <Box 
           sx={{ 
             display: 'grid', 
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(4, 1fr)' },
             gap: 3,
             mt: 2 
           }}
@@ -136,7 +144,15 @@ export default function Home() {
           </Box>
           <Box>
             <Typography variant="h6" color="primary" gutterBottom>
-              3. Manage
+              3. Verify
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lookup OTPs for phone verification and authentication
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" color="primary" gutterBottom>
+              4. Manage
             </Typography>
             <Typography variant="body2" color="text.secondary">
               View, search, and manage users and their associated businesses

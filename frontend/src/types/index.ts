@@ -35,3 +35,13 @@ export interface SearchMatch {
 export interface SearchResponse {
   matched: SearchMatch[];
 }
+
+// OTP related types
+export interface OtpRequest {
+  phoneNo: string;
+}
+
+export interface OtpResponse {
+  phoneNo: string;
+  otp: string;
+}

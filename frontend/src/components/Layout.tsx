@@ -7,7 +7,7 @@ import {
   Box,
   Container,
 } from '@mui/material';
-import { Home, CloudUpload, Search, Delete } from '@mui/icons-material';
+import { Home, CloudUpload, Search, Delete, VpnKey } from '@mui/icons-material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -22,6 +22,7 @@ export default function Layout({ children }: LayoutProps) {
     { label: 'Home', href: '/', icon: <Home /> },
     { label: 'Upload', href: '/upload', icon: <CloudUpload /> },
     { label: 'Search', href: '/search', icon: <Search /> },
+    { label: 'OTP', href: '/otp', icon: <VpnKey /> },
     { label: 'Manage', href: '/manage', icon: <Delete /> },
   ];
 

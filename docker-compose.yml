@@ -1,0 +1,52 @@
+services:
+  frontend:
+    # build: ./frontend
+    image: msanthoshhh/frontenduserdelete
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.frontend  # Optional: Use if you have many env vars  
+    # environment:
+    #   - NODE_ENV=production
+      # Add other frontend env vars here, e.g.:
+      # - NEXT_PUBLIC_API_URL=http://backend:4000
+    depends_on:
+      - backend
+
+  backend:
+    # build: ./backend
+    image: msanthoshhh/backenduserdelete
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env.backend   # Optional: Use if you have many env vars
+    # environment:
+    #   - NODE_ENV=production
+      # Add other backend env vars here, e.g.:
+      # - DB_URL=your_database_url
+
+
+
+      # =================================
+
+
+  #     services:
+  # frontend:
+  #   # build: ./frontend
+  #   ports:
+  #     - "3000:3000"
+  #   # environment:
+  #   #   - NODE_ENV=production
+  #     # Add other frontend env vars here, e.g.:
+  #     # - NEXT_PUBLIC_API_URL=http://backend:4000
+  #   depends_on:
+  #     - backend
+
+  # backend:
+  #   # build: ./backend
+  #   ports:
+  #     - "4000:4000"
+  #   # environment:
+  #   #   - NODE_ENV=production
+  #     # Add other backend env vars here, e.g.:
+  #     # - DB_URL=your_database_url

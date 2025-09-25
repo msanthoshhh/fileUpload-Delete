@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { UploadResponse, DeleteResponse, SearchResponse } from '@/types';
+import type { UploadResponse, DeleteResponse, SearchResponse, OtpResponse } from '@/types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
@@ -47,6 +47,12 @@ export class ApiService {
   // Delete all users from uploaded file
   static async deleteAllFromFile(phoneNumbers: string[]): Promise<DeleteResponse> {
     const response = await api.post('/api/delete-all-from-file', { phoneNumbers });
+    return response.data;
+  }
+
+  // Find OTP by phone number
+  static async findOtp(phoneNo: string): Promise<OtpResponse> {
+    const response = await api.post('/findOtp', { phoneNo });
     return response.data;
   }
 }

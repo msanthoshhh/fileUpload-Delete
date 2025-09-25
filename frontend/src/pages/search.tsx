@@ -96,7 +96,7 @@ export default function Search() {
           
           {searchResults.length === 0 ? (
             <Alert severity="info">
-              No users found with phone number "{phone}"
+                No users found with phone number &quot;{phone}&quot;
             </Alert>
           ) : (
             <UserTable users={searchResults} />

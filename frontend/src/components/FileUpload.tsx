@@ -41,21 +41,19 @@ export default function FileUpload({
     return null;
   };
 
-  const handleFile = async (file: File) => {
+  const handleFile = useCallback(async (file: File) => {
     setError(null);
-    
     const validationError = validateFile(file);
     if (validationError) {
       setError(validationError);
       return;
     }
-
     try {
       await onFileUpload(file);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Upload failed');
     }
-  };
+  }, [onFileUpload, maxSize, setError, validateFile]);
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -65,7 +63,7 @@ export default function FileUpload({
     if (files.length > 0) {
       handleFile(files[0]);
     }
-  }, []);
+  }, [handleFile]);
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();

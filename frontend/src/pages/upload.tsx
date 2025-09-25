@@ -10,7 +10,6 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Divider,
 } from '@mui/material';
 import { Delete as DeleteIcon, DeleteSweep, Warning } from '@mui/icons-material';
 import FileUpload from '@/components/FileUpload';
@@ -48,10 +47,16 @@ export default function Upload() {
           if (parsed.length > 0 && typeof parsed[0] === 'string') {
             phones = parsed;
           } else {
-            phones = parsed.map((p: any) => p.phoneNo || p.phone || p.Phone || p.mobile || '').filter(Boolean);
+            phones = parsed.map((p: unknown) => {
+              if (typeof p === 'object' && p !== null) {
+                const obj = p as Record<string, any>;
+                return obj.phoneNo || obj.phone || obj.Phone || obj.mobile || '';
+              }
+              return '';
+            }).filter(Boolean);
           }
         }
-      } catch (e) {
+      } catch {
         // Parse as CSV
         const lines = text.split('\n').filter(line => line.trim());
         if (lines.length > 1) {

@@ -11,13 +11,11 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Divider,
   Chip,
 } from '@mui/material';
 import {
   Delete as DeleteIcon,
   Phone as PhoneIcon,
-  DeleteSweep,
 } from '@mui/icons-material';
 import UserTable from '@/components/UserTable';
 import ApiService from '@/services/api';
